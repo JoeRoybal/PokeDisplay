@@ -13,37 +13,58 @@
       }
     </style>
 </head>
+<!--nationalNo
+pokemon
+img
+shinyImg
+typeTypes 
+species
+weight
+ability1
+ability2
+ability3
+HP
+attack
+defense
+spAtk
+spDef
+speed
+total-->
 <body>
    <h1>Welcome to PokeDisplay</h1>
    <table style="border-collapse: collapse; width: 100%; height: 50px;" border="1">
     <tbody>
     <tr>
-    <td style="width: 50%;">NAME</td>
-    <td style="width: 40%;">Type/Types</td>
-    <td style="width: 10%;">Number</td>
-    
+    <td style="width: 30%;">{{pokemon}}</td>
+    <td style="width: 20%;">TYPE/TYPES:<p>{{typeTypes}}</p></td>
+    <td style="width: 10%;">NATIONAL NUMBER:<p>{{nationalNo}}</p></td>
     </tr>
     </tbody>
     </table>
     <table style="border-collapse: collapse; width: 50%; height: 50px;" border="1">
     <tbody>
     <tr>
-    <td style="width: 44.9221%;">Category</td>
-    <td style="width: 11.8566%;">Height</td>
-    <td style="width: 12.8471%;">Weight</td>
+    <td style="width: 40%;">{{species}}</td>
+    <td style="width: 30%;">HEIGHT:<p>{{height}}</p></td>
+    <td style="width: 30%;">WEIGHT:<p>{{weight}}</p></td>
     </tr>
     </tbody>
     </table>
     <table style="border-collapse: collapse; width: 50%; height: 256px;" border="1">
     <tbody>
     <tr style="height: 256px;">
-    <td style="width: 50%; height: 256px;">BASE STATS</td>
-    <td style="width: 50%; height: 256px;">
-    <p>WEAK:</p>
-    <p>&nbsp;</p>
-    <p>IMMUNE:</p>
-    <p>&nbsp;</p>
-    <p>RESISTANT:</p>
+    <td style="width: 50%; height: 256px;">BASE STATS
+    <p>ATTACK:{{attack}} </p>
+    <p>DEFENSE:{{defense}}</p>
+    <p>SP. ATK:{{spAtk}}</p>
+    <p>SP. DEF:{{spDef}}</p>
+    <p>SPEED:{{speed}}</p>
+    <p>TOTAL:{{total}}</p>
+    </td>
+    <td style="width: 50%;">Abilites:
+    <p>{{ability1}}</p>
+    <p>{{ability2}}</p>
+    <p>{{ability3}}</p>
     </td>
     </tr>
     </tbody>
