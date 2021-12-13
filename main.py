@@ -1,15 +1,23 @@
 from flask import Flask, render_template
 import gather
+import time, sched
+import os
+import multiprocessing
 
 app = Flask(__name__)
 
+#TODO:
+# have the page reload every minute?
+# add evolutions
+# use arrow keys to go forward and backward in the dex
+# .
 
 @app.route('/')     # main URL page
 def index():
+    img = gather.standard
+    shiny = gather.shiny
     nationalNo = gather.nationalNo
     pokemon = gather.pokemon
-    img = gather.img
-    shinyImg = gather.shinyImg
     typeTypes = gather.typeTypes
     species = gather.species
     height = gather.height
@@ -24,12 +32,12 @@ def index():
     spDef = gather.spDef
     speed = gather.speed
     total = gather.total
+    entry = gather.entry
+    gen = gather.genNum
 
     return render_template('index.html',
                            nationalNo=nationalNo,
                            pokemon=pokemon,
-                           img=img,
-                           shinyImg=shinyImg,
                            typeTypes=typeTypes,
                            species=species,
                            height=height,
@@ -43,8 +51,30 @@ def index():
                            spAtk=spAtk,
                            spDef=spDef,
                            speed=speed,
-                           total=total)
+                           img=img,
+                           shiny = shiny,
+                           total=total,
+                           entry=entry,
+                           gen=gen)
 
+def pokemonUpdate():
+    s = sched.scheduler(time.time, time.sleep)
+    def PokemonPerMinute(sc): 
+        os.system('python gather.py')
+        print(gather.pokemon)
+        s.enter(5, 1, PokemonPerMinute, (sc,))
+
+    s.enter(5, 1, PokemonPerMinute, (s,))
+    s.run()
+
+def mainApp():
+    app.run()
 
 if __name__ == '__main__':
-    app.run()
+    # updater = multiprocessing.Process(name='updater', target=pokemonUpdate)
+    # webApp = multiprocessing.Process(name='webApp', target=mainApp)
+    # updater.start()
+    # webApp.start()
+    mainApp()
+
+    #gather.py runs three times?

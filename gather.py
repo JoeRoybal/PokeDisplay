@@ -6,6 +6,23 @@ import json
 with open('PokeDex.json') as f:
     PokeDex = json.load(f)
 nationalNo = random.randint(1, 898)
+genNum=0
+if 1 <= nationalNo <= 151:
+    genNum=1
+elif 152 <= nationalNo <= 251:
+    genNum = 2
+elif 252 <= nationalNo <= 386:
+    genNum = 3
+elif 387 <= nationalNo <= 493:
+    genNum = 4
+elif 494 <= nationalNo <= 649:
+    genNum = 5
+elif 650 <= nationalNo <= 721:
+    genNum = 6
+elif 722 <= nationalNo <= 809:
+    genNum = 7
+else:
+    genNum=8
 key_list = list(PokeDex.keys())
 value_list = list(PokeDex.values())
 for i in range(0, len(key_list)):
@@ -13,6 +30,7 @@ for i in range(0, len(key_list)):
 
 pokedexnum = key_list.index(nationalNo)
 pokemon = value_list[pokedexnum]
+print("Pokemon: {} from gather.py".format(pokemon))
 URL = "https://pokemondb.net/pokedex/"+pokemon.split()[0]
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, "html.parser")
@@ -21,18 +39,18 @@ main = soup.find(id="main")
 name = main.find("h1").text
 pokedexData = main.find(class_="vitals-table").text
 baseStats = main.find(class_="grid-col span-md-12 span-lg-8").text
+entry = main.find(class_="cell-med-text").text
+
 # needs reformating, not sure if it will be included yet...
 typeDefenses = main.find(class_="resp-scroll text-center").text
-img = "<a href=\"http://pokemondb.net/pokedex/"+pokemon.lower() + \
-    "\"><img src=\"https://img.pokemondb.net/sprites/home/normal/" + \
-    pokemon.lower()+".png\" alt="+pokemon+"></a>"
-shinyImg = "<a href=\"http://pokemondb.net/pokedex/"+pokemon.lower()+"\"><img src=\"https://img.pokemondb.net/sprites/home/shiny/" + \
-    pokemon.lower()+".png\" alt=\""+pokemon+"\"></a>"
 
+standard = "https://img.pokemondb.net/sprites/home/normal/"+pokemon.lower().split()[0]+".png"
+shiny = "https://img.pokemondb.net/sprites/home/shiny/"+pokemon.lower().split()[0]+".png"
+    
 
 typeBegin = pokedexData.find('Type')
 typeEnd = pokedexData.find('Species')
-typeTypes = pokedexData[typeBegin+6:typeEnd-3]
+typeTypes = pokedexData[typeBegin+6:typeEnd-3].split()
 
 speciesBegin = pokedexData.find('Species')
 speciesEnd = pokedexData.find('Height')

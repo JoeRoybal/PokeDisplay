@@ -1,0 +1,4 @@
+flask
+gather
+requests
+bs4
