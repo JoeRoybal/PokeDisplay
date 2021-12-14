@@ -14,7 +14,7 @@ app = Flask(__name__)
 # just refresh the page, it should update the calls
 @app.route('/')     # main URL page
 def index():
-    nationalNo = random.randint(1, 898)
+    nationalNo = gather.getPokeDexNum(random.randint(1, 898))
     pokemon = gather.getPokemon(nationalNo)
     img = gather.getStandImg(pokemon)
     shiny = gather.getShinyImg(pokemon)
@@ -34,6 +34,12 @@ def index():
     total = gather.getTotal(pokemon)
     entry = gather.getEntry(pokemon)
     gen = gather.getGen(nationalNo)
+    nexPokeNo = gather.getNextPokemon(nationalNo)
+    nexPokeName = gather.getPokemon(nexPokeNo)
+    nexImg = gather.getStandImg(nexPokeName)
+    prevPokeNo = gather.getPrevPokemon(nationalNo)
+    prevPokeName = gather.getPokemon(prevPokeNo)
+    prevImg = gather.getStandImg(prevPokeName)
 
     return render_template('index.html',
                            nationalNo=nationalNo,
@@ -55,6 +61,12 @@ def index():
                            shiny = shiny,
                            total=total,
                            entry=entry,
+                           nexPokeNo = nexPokeNo,
+                           nexPokeName = nexPokeName,
+                           nexImg = nexImg,
+                           prevPokeNo = prevPokeNo,
+                           prevPokeName = prevPokeName,
+                           prevImg = prevImg,
                            gen=gen)
 
 
