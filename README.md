@@ -109,16 +109,17 @@ pip install -r requirements.txt
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-###For Linux
+### For Linux
 ```sh
 export FLASK_APP=main
 flask run
 ```
-###For Windows
+### For Windows
 ```sh
 set FLASK_APP=main
 python .\main.py
 ```
+Open prefered browser and in search bar enter ```sh 127.0.0.1:5000``` which is the standard flask port. This can be changed if you would like. Google it.
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 
