@@ -1,17 +1,17 @@
 from flask import Flask, render_template
 import gather
-import time, sched
-import os
 import random
 
 app = Flask(__name__)
 
 #TODO:
 # have the page reload every minute?
-# add evolutions
+# add evolutions or next/last entry in pokedex to left of imgs
 # use arrow keys to go forward and backward in the dex
 # .
 
+# Want a new pokemon to be displayed and don't want to wait 60 seconds
+# just refresh the page, it should update the calls
 @app.route('/')     # main URL page
 def index():
     nationalNo = random.randint(1, 898)
@@ -57,22 +57,6 @@ def index():
                            entry=entry,
                            gen=gen)
 
-def pokemonUpdate():
-    s = sched.scheduler(time.time, time.sleep)
-    def PokemonPerMinute(sc): 
-        os.system('python gather.py')
-        print(gather.pokemon)
-        s.enter(5, 1, PokemonPerMinute, (sc,))
-
-    s.enter(5, 1, PokemonPerMinute, (s,))
-    s.run()
-
-def mainApp():
-    app.run()
 
 if __name__ == '__main__':
-    # updater = multiprocessing.Process(name='updater', target=pokemonUpdate)
-    # webApp = multiprocessing.Process(name='webApp', target=mainApp)
-    # updater.start()
-    # webApp.start()
-    mainApp()
+    app.run()
