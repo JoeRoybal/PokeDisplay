@@ -41,8 +41,17 @@ for i in range(0, len(key_list)):
 # kinda superfluous but ¯\_(ツ)_/¯
 def getPokeDexNum(NatNo):
     pokedexnum = key_list.index(NatNo)
-    print("Pokedex num" + pokedexnum)
-    return pokedexnum
+    return pokedexnum+1
+
+def getPrevPokemon(NatNo):
+    current = getPokeDexNum(NatNo)
+    previous = current-1
+    return previous
+
+def getNextPokemon(NatNo):
+    current = getPokeDexNum(NatNo)
+    next = current+1
+    return next
 
 # retrieves pokemon from local dex
 def getPokemon(NatNo):

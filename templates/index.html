@@ -122,24 +122,31 @@
         </tbody>
       </table> 
     </div>
-    <table style="border-collapse: collapse; width: 10%; height: 70px;border-color: black;" border="1">
+    <table style="border-collapse: collapse; width: 40%; height: 70px;border-color: black;" border="1">
       <tbody>
         <tr>
           <td>
             Standard:
-            <img align="left" src="{{img}}" alt="Standard image" height="200px" width="200px" />
+            <img align="center" src="{{img}}" alt="Standard image" height="200px" width="200px" />
+          </td>
+          <td align="center">
+            <p>Previous Pokemon : {{prevPokeNo}} | {{prevPokeName}}</p>
+            <p><img src="{{prevImg}}" alt="Previous Pokemon"  height="150px" width="150px"/></p>
           </td>
         </tr>
         <tr>
           <td>
             Shiny:
-            <img align="left" src="{{shiny}}" alt="Shiny image"  height="200px" width="200px"/>
+            <img align="center" src="{{shiny}}" alt="Shiny image"  height="200px" width="200px"/>
+          </td>
+          <td align="center">
+            <p>Next Pokemon : {{nexPokeNo}} | {{nexPokeName}}</p>
+            <p><img src="{{nexImg}}" alt="Next Pokemon"  height="150px" width="150px"/></p>
           </td>
         </tr>
       </tbody>
     </table>    
   </div> 
- 
   <div id = "entry">
     <p></p>
     <p></p>
