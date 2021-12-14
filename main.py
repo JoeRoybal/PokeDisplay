@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import gather
 import time, sched
 import os
-import multiprocessing
+import random
 
 app = Flask(__name__)
 
@@ -14,26 +14,26 @@ app = Flask(__name__)
 
 @app.route('/')     # main URL page
 def index():
-    img = gather.standard
-    shiny = gather.shiny
-    nationalNo = gather.nationalNo
-    pokemon = gather.pokemon
-    typeTypes = gather.typeTypes
-    species = gather.species
-    height = gather.height
-    weight = gather.weight
-    ability1 = gather.ability1
-    ability2 = gather.ability2
-    ability3 = gather.ability3
-    HP = gather.HP
-    attack = gather.attack
-    defense = gather.defense
-    spAtk = gather.spAtk
-    spDef = gather.spDef
-    speed = gather.speed
-    total = gather.total
-    entry = gather.entry
-    gen = gather.genNum
+    nationalNo = random.randint(1, 898)
+    pokemon = gather.getPokemon(nationalNo)
+    img = gather.getStandImg(pokemon)
+    shiny = gather.getShinyImg(pokemon)
+    typeTypes = gather.getType(pokemon)
+    species = gather.getSpecies(pokemon)
+    height = gather.getHeight(pokemon)
+    weight = gather.getWeight(pokemon)
+    ability1 = gather.getAbilities(pokemon)[0]
+    ability2 = gather.getAbilities(pokemon)[1]
+    ability3 = gather.getAbilities(pokemon)[2]
+    HP = gather.getHP(pokemon)
+    attack = gather.getAttack(pokemon)
+    defense = gather.getDefense(pokemon)
+    spAtk = gather.getSpAtk(pokemon)
+    spDef = gather.getSpDef(pokemon)
+    speed = gather.getSpeed(pokemon)
+    total = gather.getTotal(pokemon)
+    entry = gather.getEntry(pokemon)
+    gen = gather.getGen(nationalNo)
 
     return render_template('index.html',
                            nationalNo=nationalNo,
@@ -76,5 +76,3 @@ if __name__ == '__main__':
     # updater.start()
     # webApp.start()
     mainApp()
-
-    #gather.py runs three times?
