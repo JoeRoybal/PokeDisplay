@@ -90,7 +90,7 @@
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
-Pip is used to install modules used in app
+* Python
 * pip
 
 ### Installation
