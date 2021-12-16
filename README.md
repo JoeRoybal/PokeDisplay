@@ -70,7 +70,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <p>
-    <img src="/CurrentPokeDisplay(10-14-21).png" alt="CurrentPokeDisplay(10-14-21)" width="100%" height="auto">
+    <img src="/CurrentPokeDisplay(10-16-21).png" alt="CurrentPokeDisplay(10-14-21)" width="100%" height="auto">
 </p>
 
 
