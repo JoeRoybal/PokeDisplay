@@ -180,7 +180,7 @@ Project Link: [https://github.com/JoeRoybal/PokeDisplay](https://github.com/JoeR
 [issues-shield]: https://img.shields.io/github/issues/JoeRoybal/repo.svg?style=flat-square
 [issues-url]: https://github.com/JoeRoybal/PokeDisplay/issues
 [license-shield]: https://img.shields.io/github/license/JoeRoybal/repo.svg?style=flat-square
-[license-url]: https://github.com/JoeRoybal/PokeDisplay/blob/master/LICENSE.txt
+[license-url]: https://github.com/JoeRoybal/PokeDisplay/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/Joe-Roybal
 [product-screenshot]: images/screenshot.png
