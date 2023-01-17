@@ -35,6 +35,8 @@
   <p align="center">
     I wanted to make a rotating national dex from the video game Pokemon</p>
   <p align="center">
+                   The sprites do not work for new gen until Pokemon HOME support is added</p>
+  <p align="center">
     Inspired by <a href="https://github.com/NolanKingdon/MMM-DailyPokemon">MMM-DailyPokemon</a>
     <br />
     <a href="https://github.com/JoeRoybal/PokeDisplay"><strong>Explore the docs »</strong></a>
