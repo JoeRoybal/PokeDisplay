@@ -26,8 +26,10 @@ def getGen(NatNo):
         genNum = 6
     elif 722 <= NatNo <= 809:
         genNum = 7
+    elif 810 <= NatNo <= 905:
+        genNum = 8
     else:
-        genNum=8
+        genNum=9
     return genNum
 
 # Used to convert local pokedex nums from str to int
@@ -97,6 +99,8 @@ def getTypeAdDad(pokemon):
 # scrapes the home sprite 
 def getStandImg(pokemon):
     return "https://img.pokemondb.net/sprites/home/normal/"+pokemon.lower().split()[0]+".png"
+    # Built to use png sprites from home
+    #return "https://img.pokemondb.net/artwork/"+pokemon.lower().split()[0]+".jpg"
 
 # scrapes the shiny home sprite
 def getShinyImg(pokemon):
